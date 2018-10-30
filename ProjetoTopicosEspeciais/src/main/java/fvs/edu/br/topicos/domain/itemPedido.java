@@ -8,25 +8,22 @@ import javax.persistence.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class itemPedido implements Serializable {
+public class ItemPedido implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@JsonIgnore
 	@EmbeddedId
-	private itemPedidoPK id = new itemPedidoPK();
+	private ItemPedidoPK id = new ItemPedidoPK();
 
 	private Double desconto;
 	private Double preco;
 	private Integer quantidade;
-	
-	
-	public itemPedido() {
-		
+
+	public ItemPedido() {
 		
 	}
 
-
-	public itemPedido(Pedido pedido,Produto produto,Double desconto, Double preco, Integer quantidade) {
+	public ItemPedido(Pedido pedido,Produto produto, Double desconto, Double preco, Integer quantidade) {
 		super();
 		id.setPedido(pedido);
 		id.setProduto(produto);
@@ -35,55 +32,47 @@ public class itemPedido implements Serializable {
 		this.quantidade = quantidade;
 	}
 
-
+	@JsonIgnore
 	public Produto getProduto() {
 		return id.getProduto();
 	}
 	
-	@JsonIgnore
-	public Pedido getpedido() {
+	public Pedido getPedido() {
 		return id.getPedido();
 	}
 	
-	public itemPedidoPK getId() {
+	
+	public ItemPedidoPK getId() {
 		return id;
 	}
 
-
-	public void setId(itemPedidoPK id) {
+	public void setId(ItemPedidoPK id) {
 		this.id = id;
 	}
-
 
 	public Double getDesconto() {
 		return desconto;
 	}
 
-
 	public void setDesconto(Double desconto) {
 		this.desconto = desconto;
 	}
-
 
 	public Double getPreco() {
 		return preco;
 	}
 
-
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-
 
 	public Integer getQuantidade() {
 		return quantidade;
 	}
 
-
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -93,7 +82,6 @@ public class itemPedido implements Serializable {
 		return result;
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -102,7 +90,7 @@ public class itemPedido implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		itemPedido other = (itemPedido) obj;
+		ItemPedido other = (ItemPedido) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -110,7 +98,6 @@ public class itemPedido implements Serializable {
 			return false;
 		return true;
 	}
-	
 	
 	
 	
