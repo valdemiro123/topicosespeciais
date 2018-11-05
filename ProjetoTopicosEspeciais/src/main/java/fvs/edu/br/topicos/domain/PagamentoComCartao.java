@@ -5,10 +5,11 @@ import javax.persistence.Entity;
 import fvs.edu.br.topicos.enums.EstadoPagamento;
 
 @Entity
-public class PagamentoComCartao extends Pagamento {
-    private static final long serialVersionUID = 1L;
+public class PagamentoComCartao extends Pagamento{
+	private static final long serialVersionUID = 1L;
 	
-    private Integer numeroDeParcelas;
+	
+	private Integer numeroDeParcelas;
 	
 	public PagamentoComCartao() {
 		
@@ -16,7 +17,7 @@ public class PagamentoComCartao extends Pagamento {
 
 	public PagamentoComCartao(Integer id, EstadoPagamento estado, Pedido pedido, Integer numeroDeParcelas) {
 		super(id, estado, pedido);
-		this.setNumeroDeParcelas(numeroDeParcelas);
+		this.numeroDeParcelas = numeroDeParcelas;
 	}
 
 	public Integer getNumeroDeParcelas() {
@@ -26,9 +27,9 @@ public class PagamentoComCartao extends Pagamento {
 	public void setNumeroDeParcelas(Integer numeroDeParcelas) {
 		this.numeroDeParcelas = numeroDeParcelas;
 	}
+	
+	
+	
+	
 
-
-	
-	
-	
 }
