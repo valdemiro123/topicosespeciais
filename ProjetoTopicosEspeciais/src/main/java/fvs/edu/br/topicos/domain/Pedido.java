@@ -18,15 +18,17 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-public class Pedido implements Serializable{
+public class Pedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@JsonFormat(pattern="dd/MM/yyyy HH:mm")
+	@JsonFormat(pattern= "dd/MM/yyyy HH:mm")
 	private Date instante;
+
+	
 	
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
@@ -34,25 +36,25 @@ public class Pedido implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="endereco_de_entrega_id")
-	private Endereco enderecoEntrega;
+	private Endereco enderecoEntregue;  
 	
 	
 	@OneToMany(mappedBy="id.pedido")
-	private Set<ItemPedido> itens = new HashSet<>(); 
+	private Set<ItemPedido> itens = new HashSet<>();
 	
-	@OneToOne(cascade=CascadeType.ALL, mappedBy="pedido")
+	@OneToOne (cascade=CascadeType.ALL, mappedBy="pedido")
 	private Pagamento pagamento;
 	
-	public Pedido(Integer id, Date instante, Cliente cliente, Endereco enderecoEntrega) {
+	public Pedido() {
+		
+	}
+
+	public Pedido(Integer id, Date instante, Cliente cliente, Endereco enderecoEntregue) {
 		super();
 		this.id = id;
 		this.instante = instante;
 		this.cliente = cliente;
-		this.enderecoEntrega = enderecoEntrega;
-	}
-
-	public Pedido() {
-		
+		this.enderecoEntregue = enderecoEntregue;
 	}
 
 	public Integer getId() {
@@ -79,12 +81,12 @@ public class Pedido implements Serializable{
 		this.cliente = cliente;
 	}
 
-	public Endereco getEnderecoEntrega() {
-		return enderecoEntrega;
+	public Endereco getEnderecoEntregue() {
+		return enderecoEntregue;
 	}
 
-	public void setEnderecoEntrega(Endereco enderecoEntrega) {
-		this.enderecoEntrega = enderecoEntrega;
+	public void setEnderecoEntregue(Endereco enderecoEntregue) {
+		this.enderecoEntregue = enderecoEntregue;
 	}
 
 	public Set<ItemPedido> getItens() {
@@ -93,7 +95,7 @@ public class Pedido implements Serializable{
 
 	public void setItens(Set<ItemPedido> itens) {
 		this.itens = itens;
-	}
+	}  
 
 	public Pagamento getPagamento() {
 		return pagamento;
@@ -130,20 +132,4 @@ public class Pedido implements Serializable{
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

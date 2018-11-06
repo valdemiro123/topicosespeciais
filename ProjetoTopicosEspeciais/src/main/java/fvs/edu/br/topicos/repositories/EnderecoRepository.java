@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import fvs.edu.br.topicos.domain.Endereco;
 
 @Repository
-public interface EnderecoRepositry extends JpaRepository<Endereco, Integer> {
+public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
 
 }
