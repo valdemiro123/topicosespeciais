@@ -16,24 +16,23 @@ import fvs.edu.br.topicos.enums.EstadoPagamento;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Pagamento implements Serializable {
+public class Pagamento implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	private Integer id;
 	private Integer estado;
 	
+	
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="pedido_id")
 	@MapsId
 	private Pedido pedido;
-
 	
 	public Pagamento() {
 		
 	}
-
 
 	public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido) {
 		super();
@@ -42,36 +41,29 @@ public class Pagamento implements Serializable {
 		this.pedido = pedido;
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
 	public Integer getEstado() {
 		return estado;
 	}
-
 
 	public void setEstado(Integer estado) {
 		this.estado = estado;
 	}
 
-
 	public Pedido getPedido() {
 		return pedido;
 	}
 
-
 	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -80,7 +72,6 @@ public class Pagamento implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -100,4 +91,7 @@ public class Pagamento implements Serializable {
 	}
 	
 	
+	
+	
+
 }

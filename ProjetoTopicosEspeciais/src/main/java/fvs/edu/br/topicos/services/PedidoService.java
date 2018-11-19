@@ -11,15 +11,25 @@ import javassist.tools.rmi.ObjectNotFoundException;
 
 @Service
 public class PedidoService {
-
+	
 	@Autowired
 	private PedidoRepository repo;
 	
-	public Pedido buscar(Integer id) throws ObjectNotFoundException{
-		
+	public Pedido buscar(Integer id) 
+	throws ObjectNotFoundException{
 		Optional<Pedido> obj = repo.findById(id);
 		return obj.orElse(null);
-		
-	} 
-	
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+

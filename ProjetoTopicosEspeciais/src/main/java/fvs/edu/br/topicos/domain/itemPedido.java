@@ -8,22 +8,22 @@ import javax.persistence.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class ItemPedido implements Serializable {
+public class ItemPedido implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
 	@JsonIgnore
 	@EmbeddedId
 	private ItemPedidoPK id = new ItemPedidoPK();
-
+	
 	private Double desconto;
 	private Double preco;
 	private Integer quantidade;
-
+	
 	public ItemPedido() {
 		
 	}
 
-	public ItemPedido(Pedido pedido,Produto produto, Double desconto, Double preco, Integer quantidade) {
+	public ItemPedido(Pedido pedido, Produto produto, Double desconto, Double preco, Integer quantidade) {
 		super();
 		id.setPedido(pedido);
 		id.setProduto(produto);
@@ -32,15 +32,15 @@ public class ItemPedido implements Serializable {
 		this.quantidade = quantidade;
 	}
 
-	@JsonIgnore
+	
 	public Produto getProduto() {
 		return id.getProduto();
 	}
 	
+	@JsonIgnore
 	public Pedido getPedido() {
 		return id.getPedido();
 	}
-	
 	
 	public ItemPedidoPK getId() {
 		return id;
@@ -100,5 +100,5 @@ public class ItemPedido implements Serializable {
 	}
 	
 	
-	
+
 }
